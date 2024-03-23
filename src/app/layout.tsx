@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const spaceMono = Space_Mono({ subsets: ["latin"], weight:["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${spaceMono.className}`}>
+        <main className=" h-screen bg-emerald-100 flex items-center justify-center" >
+          <div className="max-w-screen-md m-auto flex-1 px-4 flex flex-col">
+            <div className="rounded-3xl bg-white shadow-lg w-full p-8 flex-1 grid">
+              {children}
+            </div>
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
